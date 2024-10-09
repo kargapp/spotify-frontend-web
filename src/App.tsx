@@ -1,13 +1,26 @@
 import { FC } from "react";
-import { ModeToggle } from "./components/mode-toggle";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "./components/shadcn/resizable";
 
 interface AppProps {}
 
 const App: FC<AppProps> = () => {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <ModeToggle />
-    </div>
+    <main className="flex h-screen flex-col">
+      <ResizablePanelGroup direction="horizontal" className="grow">
+        <ResizablePanel className="bg-red-700">
+          {"TODO: <Aside />"}
+        </ResizablePanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel className="bg-blue-700">
+          {"TODO: <Main />"}
+        </ResizablePanel>
+      </ResizablePanelGroup>
+      <div className="h-10 bg-green-700">{"TODO: <Player />"}</div>
+    </main>
   );
 };
 
